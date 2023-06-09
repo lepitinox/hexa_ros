@@ -1,0 +1,8 @@
+gmake[2]: *** [CMakeFiles/turtlesim__rosidl_typesupport_fastrtps_cpp.dir/build.make:148: CMakeFiles/turtlesim__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/turtlesim/action/detail/dds_fastrtps/rotate_absolute__type_support.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:328: CMakeFiles/turtlesim__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt
+gmake[2]: *** Deleting file 'rosidl_typesupport_introspection_c/turtlesim/srv/detail/teleport_absolute__rosidl_typesupport_introspection_c.h'
+gmake[2]: *** [CMakeFiles/turtlesim__rosidl_typesupport_introspection_c.dir/build.make:115: rosidl_typesupport_introspection_c/turtlesim/srv/detail/teleport_absolute__rosidl_typesupport_introspection_c.h] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:353: CMakeFiles/turtlesim__rosidl_typesupport_introspection_c.dir/all] Interrupt
+gmake: *** wait: No child processes.  Stop.
+gmake: *** Waiting for unfinished jobs....
+gmake: *** wait: No child processes.  Stop.
