@@ -16,6 +16,5 @@ def main(args=None):
 #    rclpy.spin(earth)  # Keep the script running with earth as the main node
 
     # Destroy the nodes when the script is stopped
-    moon.destroy_node()
-    earth.destroy_node()
+
     rclpy.shutdown()
