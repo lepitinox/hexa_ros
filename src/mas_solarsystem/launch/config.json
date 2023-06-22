@@ -1,0 +1,26 @@
+{"planetes" :{
+    "Soleil" : {"Orbite" : 0, "Rayon" : 695700, "Periode" : 0, "Rotation" : 0, "Inclinaison" : 0, "Masse" : 1989000000000000000000000000000},
+    "Mercure" : {"Orbite" : 57900000, "Rayon" : 2439.7, "Periode" : 88, "Rotation" : 58.6, "Inclinaison" : 0.03, "Masse" : 330110000000000000000000},
+    "Venus" : {"Orbite" : 108200000, "Rayon" : 6051.8, "Periode" : 225, "Rotation" : 243, "Inclinaison" : 177.36, "Masse" : 4867500000000000000000000},
+    "Terre" : {"Orbite" : 149600000, "Rayon" : 6371, "Periode" : 365.25, "Rotation" : 24, "Inclinaison" : 23.44, "Masse" : 5972370000000000000000000},
+    "Mars" : {"Orbite" : 227900000, "Rayon" : 3389.5, "Periode" : 687, "Rotation" : 24.6, "Inclinaison" : 25.19, "Masse" : 641710000000000000000000},
+    "Jupiter" : {"Orbite" : 778300000, "Rayon" : 69911, "Periode" : 4332.59, "Rotation" : 9.9, "Inclinaison" : 3.13, "Masse" : 1898200000000000000000000000},
+    "Saturne" : {"Orbite" : 1434000000, "Rayon" : 58232, "Periode" : 10759.22, "Rotation" : 10.7, "Inclinaison" : 26.73, "Masse" : 568340000000000000000000000},
+    "Uranus" : {"Orbite" : 2871000000, "Rayon" : 25362, "Periode" : 30685.4, "Rotation" : 17.2, "Inclinaison" : 97.77, "Masse" : 86810000000000000000000000},
+    "Neptune" : {"Orbite" : 4495000000, "Rayon" : 24622, "Periode" : 60189, "Rotation" : 16.1, "Inclinaison" : 28.32, "Masse" : 102410000000000000000000000}},
+
+    "params":{
+        "G" : 0.0000000000667,
+        "dt" : 1000,
+        "nbIterations" : 100000,
+        "echelle" : 1000000000,
+        "vitesse" : 1000000000,
+        "temps" : 0,
+        "tempsAffiche" : 0,
+        "tempsAfficheMax" : 1000000000,
+        "tempsAfficheMin" : 0,
+        "tempsAffichePas" : 1000000000,
+        "tempsAffichePasMin" : 1000000000,
+        "tempsAffichePasMax" : 1000000
+    }
+}
