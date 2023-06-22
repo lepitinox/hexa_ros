@@ -10,9 +10,33 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
 
-add_executable(mas_solarsystem src/celestial_body.cpp)
-add_executable(mas_solarsystem_node src/celestial_body_node.cpp)
+include_directories(include)
+
+add_executable(celestial_body_node src/celestial_body_node.cpp src/celestial_body.cpp)
+
+ament_target_dependencies(
+  celestial_body_node
+  rclcpp
+  std_msgs
+  geometry_msgs
+  visualization_msgs
+  tf2_ros
+)
+install(TARGETS celestial_body_node
+  DESTINATION lib/${PROJECT_NAME})
+
+  install(DIRECTORY
+  launch cfg
+  DESTINATION share/${PROJECT_NAME}
+)
+
+
 target_include_directories(mas_solarsystem PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
