@@ -17,7 +17,7 @@ from launch_ros.actions import PushRosNamespace
 
 
 def generate_launch_description():
-    json_file_name = 'config.json'
+    json_file_name = 'launch/config.json'
     json_file_path = os.path.join(
         get_package_share_directory('mas_solarsystem'),
         json_file_name)
