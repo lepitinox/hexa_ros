@@ -37,8 +37,8 @@ ament_target_dependencies(
 install(TARGETS celestial_body_node
   DESTINATION lib/${PROJECT_NAME})
 
-  install(DIRECTORY
-  launch cfg
+install(DIRECTORY
+  launch
   DESTINATION share/${PROJECT_NAME}
 )
 
