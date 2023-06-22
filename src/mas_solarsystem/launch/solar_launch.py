@@ -30,7 +30,7 @@ def generate_launch_description():
         to_launch.append(Node(
             package='mas_solarsystem',
             name=planet,
-            executable='mas_solarsystem',
+            executable='dummy_test_node',
             parameters=[config["planetes"][planet]]
 #            remappings=[(planet, planet)]
         ))
