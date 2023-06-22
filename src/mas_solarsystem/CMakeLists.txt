@@ -28,6 +28,12 @@ ament_target_dependencies(
   visualization_msgs
   tf2_ros
 )
+
+target_include_directories(mas_solarsystem PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(mas_solarsystem PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
 install(TARGETS celestial_body_node
   DESTINATION lib/${PROJECT_NAME})
 
@@ -35,15 +41,6 @@ install(TARGETS celestial_body_node
   launch cfg
   DESTINATION share/${PROJECT_NAME}
 )
-
-
-target_include_directories(mas_solarsystem PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_compile_features(mas_solarsystem PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-
-install(TARGETS mas_solarsystem
-  DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
