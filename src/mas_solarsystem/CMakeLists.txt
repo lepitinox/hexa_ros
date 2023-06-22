@@ -29,10 +29,10 @@ ament_target_dependencies(
   tf2_ros
 )
 
-target_include_directories(mas_solarsystem PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-target_compile_features(mas_solarsystem PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+#target_include_directories(mas_solarsystem PUBLIC
+#  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#  $<INSTALL_INTERFACE:include>)
+#target_compile_features(mas_solarsystem PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
 install(TARGETS celestial_body_node
   DESTINATION lib/${PROJECT_NAME})
