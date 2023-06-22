@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'dummy_test_node'
+package_name = 'mas_solarsystem'
 
 setup(
  name=package_name,
@@ -16,7 +16,7 @@ setup(
  tests_require=['pytest'],
  entry_points={
      'console_scripts': [
-             'my_node = my_py_pkg.my_node:main'
+             'dummy_test_node = mas_solarsystem.dummy_test_node:main'
      ],
    },
 )
