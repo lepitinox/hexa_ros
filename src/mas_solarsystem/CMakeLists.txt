@@ -12,7 +12,7 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 add_executable(mas_solarsystem src/celestial_body.cpp)
-add_executable(mas_solarsystem src/celestial_body_node.cpp)
+add_executable(mas_solarsystem_node src/celestial_body_node.cpp)
 target_include_directories(mas_solarsystem PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
