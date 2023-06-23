@@ -7,15 +7,7 @@
 
 int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
-    std::string name = argv[1];
-    double mass = std::stod(argv[2]);
-    double orbit_radius = std::stod(argv[3]);
-
-    // ros log planet name
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Planet name: %s", name.c_str());
-
-    auto planet = std::make_shared<CelestialBody>(name, mass, orbit_radius);
-
+    auto planet = std::make_shared<CelestialBody>();
     rclcpp::spin(planet);  // Keep the script running with earth as the main node
 
     // Destroy the nodes when the script is stopped

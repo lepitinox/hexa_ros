@@ -6,7 +6,7 @@
 #include "tf2_ros/transform_broadcaster.h"
 #include "visualization_msgs/msg/marker.hpp"
 
-class CelestialBody: public rclcpp::Node
+class CelestialBody : public rclcpp::Node
 
 {
 public:
