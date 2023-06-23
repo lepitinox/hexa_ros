@@ -28,12 +28,13 @@ def generate_launch_description():
 
     for name, planet in config["planetes"].items():
         dict_planet = config["planetes"][name]
+        to_send = [name]+list(planet.values())
 
         to_launch.append(Node(
             package='mas_solarsystem',
             name=name,
             executable='celestial_body_node',
-            parameters=[dict_planet],
+            parameters=to_send,
             remappings=[("/marker", f"/{name}_marker")]
             )
         )
