@@ -31,6 +31,7 @@ private:
   // adding a publisher marker_pub_
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
   visualization_msgs::msg::Marker marker_;
+  rclcpp::TimerBase::SharedPtr timer_;
 
 
 };
