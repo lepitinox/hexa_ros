@@ -9,7 +9,8 @@
 class CelestialBody: public rclcpp::Node
 {
 public:
-  CelestialBody(
+// constructor
+  CelestialBody::CelestialBody(
     const std::string &name,
     double mass,
     std::vector<double> position,
@@ -20,7 +21,6 @@ public:
   void update();
 
 private:
-  void update();
 
   std::string name_;
   double mass_;

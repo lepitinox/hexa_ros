@@ -15,8 +15,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
       ss << argv[i] << ' ';
     }
-    RCLCPP_INFO(logger, ss.str());
-    
+        
     // use parameters from launch file
 
 //    auto earth = std::make_shared<CelestialBody>("Earth", 5.972e24, Vector3d(0, 147e9, 0), Vector3d(30e3, 0, 0));
