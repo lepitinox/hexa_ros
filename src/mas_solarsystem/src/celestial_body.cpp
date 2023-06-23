@@ -27,7 +27,7 @@ CelestialBody::CelestialBody(
 
     auto update_time = std::chrono::milliseconds(10);
     auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
-    vis_pub = this->create_publisher<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
+    marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
 
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
@@ -64,6 +64,6 @@ void CelestialBody::update()
     marker_.pose.orientation.w = 1.0;
     marker_.frame_locked = true;
 
-    vis_pub.publish(marker_);
+    marker_pub_.publish(marker_);
     
 }
