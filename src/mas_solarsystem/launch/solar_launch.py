@@ -26,14 +26,17 @@ def generate_launch_description():
    
     to_launch = []
 
-    for planet in config["planetes"]:
+    for name, planet in config["planetes"].items():
+        dict_planet = config["planetes"][name]
+
         to_launch.append(Node(
             package='mas_solarsystem',
-            name=planet,
+            name=name,
             executable='celestial_body_node',
-            parameters=[config["planetes"][planet]]
-#            remappings=[(planet, planet)]
-        ))
+            parameters=[dict_planet],
+            remappings=[("/marker", f"/{name}_marker")]
+            )
+        )
 
     rviz = Node(
         package='rviz2',
