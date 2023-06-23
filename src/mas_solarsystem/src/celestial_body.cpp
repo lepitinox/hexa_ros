@@ -16,7 +16,8 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
                 .allow_undeclared_parameters(true)
                 .automatically_declare_parameters_from_overrides(true))
 {
-    
+    // log in the console that the node is starting
+    RCLCPP_INFO(this->get_logger(), "Starting Celestial Body Node");
 
     auto update_time = std::chrono::milliseconds(100);
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
