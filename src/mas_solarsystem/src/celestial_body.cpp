@@ -82,7 +82,7 @@ void CelestialBody::update()
     geometry_msgs::msg::TransformStamped t;
     t.header.stamp = this->get_clock()->now();
     t.header.frame_id = "Soleil";
-    t.child_frame_id = get_name();
+    t.child_frame_id = name;
     t.transform.translation.x = x;
     t.transform.translation.y = y;
     t.transform.translation.z = 0.0;
@@ -92,14 +92,28 @@ void CelestialBody::update()
     tf_broadcaster_->sendTransform(t);
     
     // Update the marker.
-    marker_.header.stamp = this->get_clock()->now();
-    marker_.pose.position.x = x;
-    marker_.pose.position.y = y;
-    marker_.pose.position.z = 0.0;
-    marker_.pose.orientation.w = 1.0;
-    marker_.scale.x = 10;
-    marker_.scale.y = 10;
-    marker_.scale.z = 10;
+    visualization_msgs::msg::Marker marker;
+    marker.header.stamp = this->get_clock()->now();
+    marker.header.frame_id = name;
+    marker.ns = "my_namespace";
+    marker.id = id;
+    marker.type = visualization_msgs::msg::Marker::SPHERE;
+    marker.action = visualization_msgs::msg::Marker::ADD;
+    marker.pose.position.x = x;
+    marker.pose.position.y = y;
+    marker.pose.position.z = 1;
+    marker.pose.orientation.x = 0.0;
+    marker.pose.orientation.y = 0.0;
+    marker.pose.orientation.z = 0.0;
+    marker.pose.orientation.w = 1.0;
+    marker.scale.x = 1;
+    marker.scale.y = 0.1;
+    marker.scale.z = 0.1;
+    marker.color.a = 1.0; // Don't forget to set the alpha!
+    marker.color.r = 0.0;
+    marker.color.g = 1.0;
+    marker.color.b = 0.0;
+    marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
     }
     // Publish the marker.
