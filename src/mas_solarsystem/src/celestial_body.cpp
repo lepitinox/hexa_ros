@@ -14,15 +14,9 @@
 CelestialBody::CelestialBody(
   const std::string &name,
   double mass,
-  std::vector<double> position,
-  std::vector<double> velocity,
-  double g_constant,
   double orbit_radius) : Node(name),
     name_(name),
     mass_(mass),
-    position_(position),
-    velocity_(velocity),
-    g_constant_(g_constant),
     orbit_radius_(orbit_radius){
 
 
