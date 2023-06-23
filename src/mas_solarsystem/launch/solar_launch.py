@@ -37,7 +37,7 @@ def generate_launch_description():
             package='mas_solarsystem',
             name=name,
             executable='celestial_body_node',
-            parameters=to_send,
+            parameters=[to_send],
             remappings=[("/marker", f"/{name}_marker")]
             )
         )
