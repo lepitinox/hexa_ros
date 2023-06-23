@@ -1,6 +1,6 @@
 #include <iostream>
 #include "rclcpp/rclcpp.hpp"
-#include "mas_solarsystem/celestial_body.h"
+#include "celestial_body.h"
 #include <string>
 
 
