@@ -11,10 +11,7 @@ class CelestialBody: public rclcpp::Node
 {
 public:
 // constructor
-  CelestialBody(
-    const std::string &name,
-    double mass,
-    double orbit_radius);
+  CelestialBody();
 
   void update();
   double calculate_omega(double G, double M, double r);
