@@ -53,7 +53,7 @@ void CelestialBody::update()
     marker_.scale.x = 10;
     marker_.scale.y = 10;
     marker_.scale.z = 10;
-    marker_.frame_locked = true;
+//    marker_.frame_locked = true;
     }else{
 
     auto g_constant_ = 6.67430e-11;
@@ -85,7 +85,7 @@ void CelestialBody::update()
     marker_.scale.x = 10;
     marker_.scale.y = 10;
     marker_.scale.z = 10;
-    marker_.frame_locked = true;
+//    marker_.frame_locked = true;
     }
     // Publish the marker.
     marker_pub_->publish(marker_);
