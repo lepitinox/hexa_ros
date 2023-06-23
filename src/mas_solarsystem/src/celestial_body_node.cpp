@@ -1,5 +1,4 @@
 #include <iostream>
-#include "dummy_test.h"
 #include "rclcpp/rclcpp.hpp"
 
 int main(int argc, char *argv[]) {

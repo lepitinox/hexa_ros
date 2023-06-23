@@ -32,12 +32,12 @@ class CelestialBody(
     ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
 
 }
-    double calculate_omega(double G, double M, double r) {
+    double CelestialBody::calculate_omega(double G, double M, double r) {
         double omega = std::sqrt(G * M / std::pow(r, 3));
         return omega;
     }
 
-    void update()
+    void CelestialBody::update()
     {
         auto g_constant_ = 6.67430e-11;
         double angular_velocity_ = calculate_omega(g_constant_, mass_, orbit_radius_);
