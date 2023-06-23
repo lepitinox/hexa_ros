@@ -47,7 +47,7 @@ class CelestialBody(
         double y = orbit_radius_ * sin(angle);
 
         geometry_msgs::msg::TransformStamped t;
-        t.header.stamp = ros::Time();
+        t.header.stamp = this->get_clock()->now();
         t.header.frame_id = "sun";
         t.child_frame_id = get_name();
         t.transform.translation.x = x;
@@ -56,14 +56,15 @@ class CelestialBody(
         t.transform.rotation.w = 1.0;
 
         // Broadcast the transform.
-        broadcaster_->sendTransform(t);
+        tf_broadcaster_->sendTransform(t);
 
         // Update the marker.
-        marker_.header.stamp = ros::Time();
+        marker_.header.stamp = this->get_clock()->now();
         marker_.pose.position.x = x;
         marker_.pose.position.y = y;
         marker_.pose.position.z = 0.0;
         marker_.pose.orientation.w = 1.0;
+        marker_.frame_locked = true;
 
         vis_pub.publish(marker_);
         
