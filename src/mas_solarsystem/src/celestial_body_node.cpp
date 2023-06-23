@@ -7,7 +7,7 @@
 
 int main(int argc, char *argv[]) {
     rclcpp::init(argc, argv);
-    std:string name = argv[1];
+    std::string name = argv[1];
     double mass = std::stod(argv[2]);
     double orbit_radius = std::stod(argv[3]);
 
