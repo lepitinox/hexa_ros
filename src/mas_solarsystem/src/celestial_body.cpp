@@ -23,10 +23,10 @@ CelestialBody::CelestialBody(
     position_(position),
     velocity_(velocity),
     g_constant_(g_constant),
-    orbit_radius_(orbit_radius)
-{
+    orbit_radius_(orbit_radius){
+
     auto update_time = std::chrono::milliseconds(10);
-    timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
+    auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
     ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
 
 }
