@@ -11,6 +11,9 @@ int main(int argc, char *argv[]) {
     double mass = std::stod(argv[2]);
     double orbit_radius = std::stod(argv[3]);
 
+    // ros log planet name
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Planet name: %s", name.c_str());
+
     auto planet = std::make_shared<CelestialBody>(name, mass, orbit_radius);
 
     rclcpp::spin(planet);  // Keep the script running with earth as the main node
