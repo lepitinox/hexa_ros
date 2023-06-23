@@ -1,52 +1,74 @@
+#include <math.h>
 #include <rclcpp/rclcpp.hpp>
-#include <std_msgs/msg/float64_multi_array.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2/LinearMath/Quaternion.h>
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include "celestial_body.h"
 #include <cmath>
 #include <memory>
-#include <vector>
+#include "geometry_msgs/msg/transform_stamped.hpp"
+#include "tf2_ros/transform_broadcaster.h"
+#include "visualization_msgs/msg/marker.hpp"
 
-class CelestialBody : public rclcpp::Node
+
+class CelestialBody(
+  const std::string &name,
+  double mass,
+  std::vector<double> position,
+  std::vector<double> velocity,
+  double g_constant,
+  double orbit_radius)
+  : rclcpp::Node(name),
+    name_(name),
+    mass_(mass),
+    position_(position),
+    velocity_(velocity),
+    g_constant_(g_constant),
+    orbit_radius_(orbit_radius)
+
 {
-public:
-    CelestialBody(const std::string &name, double mass, std::vector<double> position, std::vector<double> velocity, double g_constant = 6.67430e-11, const std::string &publish_topic = "position")
-        : Node(name), mass_(mass), position_(position), velocity_(velocity), g_constant_(g_constant)
-    {
-        timer_ = this->create_wall_timer(std::chrono::milliseconds(100), std::bind(&CelestialBody::move, this));
-        publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(publish_topic, 10);
-    }
+    auto update_time = std::chrono::milliseconds(10);
+    timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
+    ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
 
-private:
-    void move()
-    {
-        double omega = std::sqrt(g_constant_ * mass_ / std::pow(distance(), 3));
-        position_[0] += velocity_[0] * omega;
-        position_[1] += velocity_[1] * omega;
-        position_[2] += velocity_[2] * omega;
-
-        RCLCPP_INFO(this->get_logger(), "%s position: [%f, %f, %f]", this->get_name(), position_[0], position_[1], position_[2]);
-
-        std_msgs::msg::Float64MultiArray msg;
-        msg.data = position_;
-        publisher_->publish(msg);
-    }
-
-    double distance()
-    {
-        return std::sqrt(std::pow(position_[0], 2) + std::pow(position_[1], 2) + std::pow(position_[2], 2));
-    }
-
-    double mass_;
-    std::vector<double> position_;
-    std::vector<double> velocity_;
-    double g_constant_;
-    rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_;
-};
-
-int main(int argc, char *argv[])
-{
-    rclcpp::init(argc, argv);
-    auto celestial_body = std::make_shared<CelestialBody>("name", mass, position, velocity);
-    rclcpp::spin(celestial_body);
-    rclcpp::shutdown();
-    return 0;
 }
+    double calculate_omega(double G, double M, double r) {
+        double omega = std::sqrt(G * M / std::pow(r, 3));
+        return omega;
+    }
+
+    void update()
+    {
+        auto g_constant_ = 6.67430e-11;
+        auto mass_ = mass;
+        double orbit_radius_ = orbit_radius;
+        double angular_velocity_ = calculate_omega(g_constant_, mass_, orbit_radius_);
+        double angle = timer_ * angular_velocity_;
+
+        double x = orbit_radius_ * cos(angle);
+        double y = orbit_radius_ * sin(angle);
+
+        elapsed_time_ += 0.1;
+
+        geometry_msgs::msg::TransformStamped t;
+        t.header.stamp = now();
+        t.header.frame_id = "sun";
+        t.child_frame_id = get_name();
+        t.transform.translation.x = x;
+        t.transform.translation.y = y;
+        t.transform.translation.z = 0.0;
+        t.transform.rotation.w = 1.0;
+
+        // Broadcast the transform.
+        broadcaster_->sendTransform(t);
+
+        // Update the marker.
+        marker_.header.stamp = now();
+        marker_.pose.position.x = x;
+        marker_.pose.position.y = y;
+        marker_.pose.position.z = 0.0;
+        marker_.pose.orientation.w = 1.0;
+
+        vis_pub.publish(marker_);
+        
+    }
