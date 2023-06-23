@@ -46,7 +46,7 @@ void CelestialBody::update()
         tf_broadcaster_->sendTransform(t);
     
     // Update the marker.
-    visualization_msgs::Marker marker;
+    visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
     marker.header.frame_id = name;
     marker.ns = "my_namespace";
@@ -67,6 +67,7 @@ void CelestialBody::update()
     marker.color.r = 0.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
+    marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
     }else{
 
