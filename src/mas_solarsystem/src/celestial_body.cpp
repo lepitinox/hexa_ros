@@ -28,7 +28,7 @@ CelestialBody::CelestialBody(
     auto update_time = std::chrono::milliseconds(10);
     auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "visualization_marker", 0 );
-    ttime_ = 0.0;
+    this.ttime_ = 0.0;
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
     double omega = std::sqrt(G * M / std::pow(r, 3));
@@ -37,10 +37,10 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 
 void CelestialBody::update()
 {   
-    ttime_ += 0.01;
+    this.ttime_ += 0.01;
     auto g_constant_ = 6.67430e-11;
     double angular_velocity_ = calculate_omega(g_constant_, mass_, orbit_radius_);
-    double angle =  * angular_velocity_;
+    double angle = this.ttime_ * angular_velocity_;
 
     double x = orbit_radius_ * cos(angle);
     double y = orbit_radius_ * sin(angle);
