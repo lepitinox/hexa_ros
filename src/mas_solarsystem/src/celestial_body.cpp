@@ -51,8 +51,8 @@ void CelestialBody::update()
     marker.header.frame_id = name;
     marker.ns = "my_namespace";
     marker.id = id;
-    marker.type = visualization_msgs::Marker::SPHERE;
-    marker.action = visualization_msgs::Marker::ADD;
+    marker.type = visualization_msgs::msg::Marker::SPHERE;
+    marker.action = visualization_msgs::msg::Marker::ADD;
     marker.pose.position.x = 1;
     marker.pose.position.y = 1;
     marker.pose.position.z = 1;
