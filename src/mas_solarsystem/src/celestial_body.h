@@ -20,6 +20,7 @@ public:
     double orbit_radius = 0.0);
 
   void update();
+  double calculate_omega(double G, double M, double r);
 
 private:
 
