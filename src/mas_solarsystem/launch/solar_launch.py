@@ -35,4 +35,10 @@ def generate_launch_description():
 #            remappings=[(planet, planet)]
         ))
 
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+    )
+
     return LaunchDescription(to_launch)
