@@ -46,6 +46,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
+        arguments=['-d', os.path.join(get_package_share_directory('mas_solarsystem'), 'launch', 'config.rviz')],
     )
     to_launch.append(rviz)
     return LaunchDescription(to_launch)
