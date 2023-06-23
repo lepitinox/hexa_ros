@@ -11,7 +11,7 @@
 #include "visualization_msgs/msg/marker.hpp"
 
 
-class CelestialBody(
+class CelestialBody::CelestialBody(
   const std::string &name,
   double mass,
   std::vector<double> position,
