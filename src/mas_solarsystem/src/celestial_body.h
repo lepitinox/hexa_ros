@@ -14,10 +14,7 @@ public:
   CelestialBody(
     const std::string &name,
     double mass,
-    std::vector<double> position,
-    std::vector<double> velocity,
-    double g_constant = 6.67430e-11,
-    double orbit_radius = 0.0);
+    double orbit_radius);
 
   void update();
   double calculate_omega(double G, double M, double r);
