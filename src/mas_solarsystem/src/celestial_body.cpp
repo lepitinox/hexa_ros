@@ -50,6 +50,9 @@ void CelestialBody::update()
     marker_.pose.position.y = 0.0;
     marker_.pose.position.z = 0.0;
     marker_.pose.orientation.w = 1.0;
+    marker_.scale.x = 10;
+    marker_.scale.y = 10;
+    marker_.scale.z = 10;
     marker_.frame_locked = true;
     }else{
 
@@ -79,6 +82,9 @@ void CelestialBody::update()
     marker_.pose.position.y = y;
     marker_.pose.position.z = 0.0;
     marker_.pose.orientation.w = 1.0;
+    marker_.scale.x = 10;
+    marker_.scale.y = 10;
+    marker_.scale.z = 10;
     marker_.frame_locked = true;
     }
     // Publish the marker.
