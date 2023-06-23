@@ -41,6 +41,15 @@ void CelestialBody::update()
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
         t.transform.translation.z = 0.0;
+        tf_broadcaster_->sendTransform(t);
+    
+    // Update the marker.
+    marker_.header.stamp = this->get_clock()->now();
+    marker_.pose.position.x = x;
+    marker_.pose.position.y = y;
+    marker_.pose.position.z = 0.0;
+    marker_.pose.orientation.w = 1.0;
+    marker_.frame_locked = true;
     }else{
 
     auto g_constant_ = 6.67430e-11;
@@ -62,7 +71,7 @@ void CelestialBody::update()
 
     // Broadcast the transform.
     tf_broadcaster_->sendTransform(t);
-    }
+    
     // Update the marker.
     marker_.header.stamp = this->get_clock()->now();
     marker_.pose.position.x = x;
@@ -70,7 +79,7 @@ void CelestialBody::update()
     marker_.pose.position.z = 0.0;
     marker_.pose.orientation.w = 1.0;
     marker_.frame_locked = true;
-
+    }
     // Publish the marker.
     marker_pub_->publish(marker_);
     
