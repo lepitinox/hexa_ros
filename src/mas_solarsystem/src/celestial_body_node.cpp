@@ -11,12 +11,14 @@ int main(int argc, char *argv[]) {
     }
 
     // log args using rclcpp
-    auto logger = rclcpp::get_logger("dummy_test_node");
+    auto logger = rclcpp::get_logger("celestial_body_node");
     std::stringstream ss;
     for (int i = 1; i < argc; i++) {
       ss << argv[i] << ' ';
     }
     RCLCPP_INFO(logger, ss.str());
+    
+    // use parameters from launch file
 
 //    auto earth = std::make_shared<CelestialBody>("Earth", 5.972e24, Vector3d(0, 147e9, 0), Vector3d(30e3, 0, 0));
 //    auto moon = std::make_shared<CelestialBody>("Moon", 7.342e22, Vector3d(385e6, 147e9, 0), Vector3d(1e3, 30e3, 0));
@@ -28,3 +30,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
