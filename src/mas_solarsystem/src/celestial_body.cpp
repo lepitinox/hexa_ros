@@ -20,8 +20,8 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
 
     auto update_time = std::chrono::milliseconds(100);
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
-    //auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
-    timer_ =  create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
+    auto timer_ = create_wall_timer(std::chrono::milliseconds(100), std::bind(&CelestialBody::update, this));
+    //auto timer_ = create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
 
     
     
@@ -118,7 +118,6 @@ void CelestialBody::update()
     marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
     }
-    // Publish the marker.
-    marker_pub_->publish(marker_);
+
     
 }
