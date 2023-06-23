@@ -32,6 +32,7 @@ private:
   double orbit_radius_;   
 
   rclcpp::Clock::SharedPtr clock_;
-  tf2_ros::TransformBroadcaster tf_broadcaster_;
+  std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
-  visualization_msgs::msg::Marker marker_;};
+  visualization_msgs::msg::Marker marker_;
+};
