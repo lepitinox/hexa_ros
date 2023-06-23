@@ -33,6 +33,16 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 void CelestialBody::update()
 {   
 
+    if (name_ == "Soleil"){
+        geometry_msgs::msg::TransformStamped t;
+        t.header.stamp = this->get_clock()->now();
+        t.header.frame_id = "world";
+        t.child_frame_id = get_name();
+        t.transform.translation.x = 0.0;
+        t.transform.translation.y = 0.0;
+        t.transform.translation.z = 0.0;
+    }else{
+
     auto g_constant_ = 6.67430e-11;
     double angular_velocity_ = calculate_omega(g_constant_, mass_, orbit_radius_);
 
@@ -43,7 +53,7 @@ void CelestialBody::update()
 
     geometry_msgs::msg::TransformStamped t;
     t.header.stamp = this->get_clock()->now();
-    t.header.frame_id = "sun";
+    t.header.frame_id = "Soleil";
     t.child_frame_id = get_name();
     t.transform.translation.x = x;
     t.transform.translation.y = y;
@@ -52,7 +62,7 @@ void CelestialBody::update()
 
     // Broadcast the transform.
     tf_broadcaster_->sendTransform(t);
-
+    }
     // Update the marker.
     marker_.header.stamp = this->get_clock()->now();
     marker_.pose.position.x = x;
