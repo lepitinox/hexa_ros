@@ -45,7 +45,7 @@ void CelestialBody::update()
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
         t.transform.translation.z = 0.0;
-        tf_broadcaster_->sendTransform(t);
+        
     
         // Update the marker.
         visualization_msgs::msg::Marker marker;
@@ -65,13 +65,14 @@ void CelestialBody::update()
         marker.scale.x = 1;
         marker.scale.y = 10;
         marker.scale.z = 10;
-        marker.color.a = 1.0; // Don't forget to set the alpha!
+        marker.color.a = 1.0; 
         marker.color.r = 1.0;
         marker.color.g = 1.0;
         marker.color.b = 1.0;
-        marker.lifetime = rclcpp::Duration(0);
-        marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
+        marker_pub_->publish(marker);
+        tf_broadcaster_->sendTransform(t);
+
     }else{
 
     auto g_constant_ = 6.67430e-11;
@@ -92,7 +93,7 @@ void CelestialBody::update()
     t.transform.rotation.w = 1.0;
 
     // Broadcast the transform.
-    tf_broadcaster_->sendTransform(t);
+    
     
     // Update the marker.
     visualization_msgs::msg::Marker marker;
@@ -112,13 +113,14 @@ void CelestialBody::update()
     marker.scale.x = 10;
     marker.scale.y = 10;
     marker.scale.z = 10;
-    marker.color.a = 1.0; // Don't forget to set the alpha!
+    marker.color.a = 1.0; 
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
-    marker.lifetime = rclcpp::Duration(0);
-    marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
+    marker_pub_->publish(marker);
+    tf_broadcaster_->sendTransform(t);
+
     }
 
     
