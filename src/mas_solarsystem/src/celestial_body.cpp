@@ -33,7 +33,9 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 }
 
 void CelestialBody::update()
-{   auto name = this->get_parameter("name").as_string();
+{   
+    RCLCPP_INFO(this->get_logger(), "In update");
+    auto name = this->get_parameter("name").as_string();
     auto mass = this->get_parameter("Masse").as_double();
     auto orbit_radius = this->get_parameter("Orbite").as_double();
     auto id = this->get_parameter("id").as_int();
