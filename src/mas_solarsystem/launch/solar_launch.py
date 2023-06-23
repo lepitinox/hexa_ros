@@ -29,6 +29,7 @@ def generate_launch_description():
     for name, planet in config["planetes"].items():
         dict_planet = config["planetes"][name]
         to_send = [name]+list(planet.values())
+        print(to_send)
 
         to_launch.append(Node(
             package='mas_solarsystem',
