@@ -33,6 +33,7 @@ void CelestialBody::update()
 {   auto name = this->get_parameter("name").as_string();
     auto mass = this->get_parameter("Masse").as_double();
     auto orbit_radius = this->get_parameter("Orbite").as_double();
+    auto id = this->get_parameter("id").as_int();
 
     if (name == "Soleil"){
         geometry_msgs::msg::TransformStamped t;
@@ -45,14 +46,27 @@ void CelestialBody::update()
         tf_broadcaster_->sendTransform(t);
     
     // Update the marker.
-    marker_.header.stamp = this->get_clock()->now();
-    marker_.pose.position.x = 0.0;
-    marker_.pose.position.y = 0.0;
-    marker_.pose.position.z = 0.0;
-    marker_.pose.orientation.w = 1.0;
-    marker_.scale.x = 10;
-    marker_.scale.y = 10;
-    marker_.scale.z = 10;
+    visualization_msgs::Marker marker;
+    marker.header.stamp = this->get_clock()->now();
+    marker.header.frame_id = name;
+    marker.ns = "my_namespace";
+    marker.id = id;
+    marker.type = visualization_msgs::Marker::SPHERE;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker.pose.position.x = 1;
+    marker.pose.position.y = 1;
+    marker.pose.position.z = 1;
+    marker.pose.orientation.x = 0.0;
+    marker.pose.orientation.y = 0.0;
+    marker.pose.orientation.z = 0.0;
+    marker.pose.orientation.w = 1.0;
+    marker.scale.x = 1;
+    marker.scale.y = 0.1;
+    marker.scale.z = 0.1;
+    marker.color.a = 1.0; // Don't forget to set the alpha!
+    marker.color.r = 0.0;
+    marker.color.g = 1.0;
+    marker.color.b = 0.0;
 //    marker_.frame_locked = true;
     }else{
 

@@ -25,12 +25,13 @@ def generate_launch_description():
         config = json.load(file_handle)
    
     to_launch = []
-
+    a = 0
     for name, planet in config["planetes"].items():
         dict_planet = config["planetes"][name]
 
         to_send = {"name": name}
         to_send.update(dict_planet)
+        to_send["id"] = a
 
 
         to_launch.append(Node(
@@ -41,6 +42,7 @@ def generate_launch_description():
             remappings=[("/marker", f"/{name}_marker")]
             )
         )
+        a += 1
 
     rviz = Node(
         package='rviz2',
