@@ -69,6 +69,7 @@ void CelestialBody::update()
         marker.color.r = 1.0;
         marker.color.g = 1.0;
         marker.color.b = 1.0;
+        marker.lifetime = rclcpp::Duration(0);
         marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
     }else{
@@ -115,6 +116,7 @@ void CelestialBody::update()
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
+    marker.lifetime = rclcpp::Duration(0);
     marker_pub_->publish(marker);
 //    marker_.frame_locked = true;
     }
