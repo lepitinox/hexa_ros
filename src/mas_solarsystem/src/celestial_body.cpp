@@ -42,7 +42,7 @@ void CelestialBody::update()
     auto g_constant_ = 6.67430e-11;
     double angular_velocity_ = calculate_omega(g_constant_, mass_, orbit_radius_);
 
-    double angle = angular_velocity_ * this->get_clock()->now().seconds().count();
+    double angle = angular_velocity_ * this->get_clock()->now().seconds();
 
     double x = orbit_radius_ * cos(angle);
     double y = orbit_radius_ * sin(angle);
@@ -67,6 +67,7 @@ void CelestialBody::update()
     marker_.pose.orientation.w = 1.0;
     marker_.frame_locked = true;
 
-    marker_pub_.publish(marker_);
+    // Publish the marker.
+    marker_pub_->publish(marker_);
     
 }
