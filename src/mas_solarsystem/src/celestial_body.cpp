@@ -11,10 +11,10 @@
 #include "visualization_msgs/msg/marker.hpp"
 
 
-CelestialBody::CelestialBody : Node("celestial_body_node",
+CelestialBody::CelestialBody : Node("celestial_body_node"),
             rclcpp::NodeOptions()
                 .allow_undeclared_parameters(true)
-                .automatically_declare_parameters_from_overrides(true))
+                .automatically_declare_parameters_from_overrides(true)
 {
     
 
