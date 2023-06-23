@@ -45,8 +45,8 @@ void CelestialBody::update()
     
     // Update the marker.
     marker_.header.stamp = this->get_clock()->now();
-    marker_.pose.position.x = x;
-    marker_.pose.position.y = y;
+    marker_.pose.position.x = 0.0;
+    marker_.pose.position.y = 0.0;
     marker_.pose.position.z = 0.0;
     marker_.pose.orientation.w = 1.0;
     marker_.frame_locked = true;
