@@ -40,5 +40,5 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
     )
-
+    to_launch.append(rviz)
     return LaunchDescription(to_launch)
