@@ -6,13 +6,8 @@
 #include "tf2_ros/transform_broadcaster.h"
 #include "visualization_msgs/msg/marker.hpp"
 
-class CelestialBody: public rclcpp::Node(name),
-    name_(name),
-    mass_(mass),
-    position_(position),
-    velocity_(velocity),
-    g_constant_(g_constant),
-    orbit_radius_(orbit_radius)
+class CelestialBody: public rclcpp::Node
+
 {
 public:
 // constructor
