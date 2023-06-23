@@ -19,8 +19,9 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     
 
     auto update_time = std::chrono::milliseconds(100);
-    auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
+    auto timer_ = create_wall_timer(update_time, std::bind(&CelestialBody::update, this));
+    
     
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
