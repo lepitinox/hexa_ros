@@ -49,7 +49,7 @@ void CelestialBody::update()
     visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
     marker.header.frame_id = name;
-    marker.ns = "my_namespace";
+    marker.ns = "";
     marker.id = id;
     marker.type = visualization_msgs::msg::Marker::SPHERE;
     marker.action = visualization_msgs::msg::Marker::ADD;
@@ -95,7 +95,7 @@ void CelestialBody::update()
     visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
     marker.header.frame_id = name;
-    marker.ns = "my_namespace";
+    marker.ns = "";
     marker.id = id;
     marker.type = visualization_msgs::msg::Marker::SPHERE;
     marker.action = visualization_msgs::msg::Marker::ADD;
