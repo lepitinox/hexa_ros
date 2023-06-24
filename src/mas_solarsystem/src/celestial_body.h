@@ -31,6 +31,7 @@ private:
   int id;
   double Rayon;
   double r_scale;
+  double d_scale;
 
   rclcpp::Clock::SharedPtr clock_;
   geometry_msgs::msg::TransformStamped t;
