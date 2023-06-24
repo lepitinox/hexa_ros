@@ -50,6 +50,10 @@ void CelestialBody::update()
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
         t.transform.translation.z = 0.0;
+        t.transform.rotation.x = 0.0;
+        t.transform.rotation.y = 0.0;
+        t.transform.rotation.z = 0.0;
+        t.transform.rotation.w = 0.0;
         RCLCPP_INFO(this->get_logger(), "Soleil: transfomr up");
         
     
@@ -99,7 +103,10 @@ void CelestialBody::update()
     t.transform.translation.x = x;
     t.transform.translation.y = y;
     t.transform.translation.z = 0.0;
-    t.transform.rotation.w = 1.0;
+    t.transform.rotation.x = 0.0;
+    t.transform.rotation.y = 0.0;
+    t.transform.rotation.z = 0.0;
+    t.transform.rotation.w = 0.0;
     RCLCPP_INFO(this->get_logger(), "planet: transform up");
     // Broadcast the transform.
     
