@@ -48,10 +48,12 @@ void CelestialBody::update()
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
         t.transform.translation.z = 0.0;
-        t.transform.rotation.x = 0.0;
-        t.transform.rotation.y = 0.0;
-        t.transform.rotation.z = 0.0;
-        t.transform.rotation.w = 0.0;
+        tf2::Quaternion q;
+        q.setRPY(0, 0, 5);
+        t.transform.rotation.x = q.x();
+        t.transform.rotation.y = q.y();
+        t.transform.rotation.z = q.z();
+        t.transform.rotation.w = q.w();
         tf_broadcaster_->sendTransform(t);
 
         // Update the marker.
@@ -98,10 +100,12 @@ void CelestialBody::update()
     t.transform.translation.x = 0.0;
     t.transform.translation.y = 0.0;
     t.transform.translation.z = 0.0;
-    t.transform.rotation.x = 0.0;
-    t.transform.rotation.y = 0.0;
-    t.transform.rotation.z = 0.0;
-    t.transform.rotation.w = 0.0;
+    tf2::Quaternion q;
+    q.setRPY(0, 0, 5);
+    t.transform.rotation.x = q.x();
+    t.transform.rotation.y = q.y();
+    t.transform.rotation.z = q.z();
+    t.transform.rotation.w = q.w();
 
     tf_broadcaster_->sendTransform(t);
     
