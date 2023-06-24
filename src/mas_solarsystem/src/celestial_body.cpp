@@ -27,7 +27,8 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     std::string name = this->get_parameter("name").as_string();
     double mass = this->get_parameter("Masse").as_double();
     double orbit_radius = this->get_parameter("Orbite").as_double();
-    int id = this->get_parameter("id").as_int();
+    double id = this->get_parameter("id").as_double();
+
     RCLCPP_INFO(this->get_logger(), "OKLOL 3");
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
