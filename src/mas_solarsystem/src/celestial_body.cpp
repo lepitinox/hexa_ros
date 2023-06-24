@@ -21,17 +21,14 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
     RCLCPP_INFO(this->get_logger(), "OKLOL 2");
     timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&CelestialBody::update, this));
-    RCLCPP_INFO(this->get_logger(), "OKLOL 3");
-    //auto timer_ = create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
     
+    //auto timer_ = create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
 
     std::string name = this->get_parameter("name").as_string();
     double mass = this->get_parameter("Masse").as_double();
     double orbit_radius = this->get_parameter("Orbite").as_double();
     int id = this->get_parameter("id").as_int();
-
-    
-    
+    RCLCPP_INFO(this->get_logger(), "OKLOL 3");
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
     double omega = std::sqrt(G * M / std::pow(r, 3));
