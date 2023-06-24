@@ -27,7 +27,7 @@ private:
   double orbit_radius_;
   std::string name;
   double mass;
-  double orbit_radius;
+  int orbit_radius;
   int id;
 
   rclcpp::Clock::SharedPtr clock_;
