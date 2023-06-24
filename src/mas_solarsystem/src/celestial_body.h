@@ -35,6 +35,7 @@ private:
   double time_stamp_scale;
   double Rotation;
   double Inclinaison;
+  double Periode;
 
   rclcpp::Clock::SharedPtr clock_;
   geometry_msgs::msg::TransformStamped t;

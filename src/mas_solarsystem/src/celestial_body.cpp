@@ -51,12 +51,8 @@ void CelestialBody::update()
         
         tf2::Quaternion q;
         double PeriodeSec = this->Periode * 3600 * 24 
-        double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
-        double anglenew = PeriodeSec * M_PI / PeriodeSec;
-        // modulo 2PI
+        double anglenew =( PeriodeSec * M_PI) / (this->get_clock()->now().seconds() * this->time_stamp_scale);
         auto ww = fmod(anglenew, 2 * M_PI);
-
-        
         q.setEuler(ww, this->Inclinaison, 0);
 
         geometry_msgs::msg::TransformStamped t;
@@ -118,15 +114,13 @@ void CelestialBody::update()
     t.transform.translation.x = x * this->d_scale;
     t.transform.translation.y = y * this->d_scale;
     t.transform.translation.z = 0.0;
+
     tf2::Quaternion q;
     double PeriodeSec = this->Periode * 3600 * 24 
-    double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
-    double anglenew = PeriodeSec * M_PI / trans_sec;
-    // modulo 2PI
+    double anglenew =( PeriodeSec * M_PI) / (this->get_clock()->now().seconds() * this->time_stamp_scale);
     auto ww = fmod(anglenew, 2 * M_PI);
-
-    
     q.setEuler(ww, this->Inclinaison, 0);
+
     t.transform.rotation.x = q.x();
     t.transform.rotation.y = q.y();
     t.transform.rotation.z = q.z();
