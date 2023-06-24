@@ -31,31 +31,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     this->orbit_radius = this->get_parameter("Orbite").as_int();
     this->id = this->get_parameter("id").as_int();
 
-        // Update the marker.
-    visualization_msgs::msg::Marker marker;
-    marker.header.stamp = this->get_clock()->now();
-    marker.header.frame_id = this->name;
-    marker.ns = "";
-    marker.id = this->id;
-    marker.type = visualization_msgs::msg::Marker::SPHERE;
-    marker.action = visualization_msgs::msg::Marker::ADD;
-    marker.pose.position.x = 1;
-    marker.pose.position.y = 1;
-    marker.pose.position.z = 1;
-    marker.pose.orientation.x = 0.0;
-    marker.pose.orientation.y = 0.0;
-    marker.pose.orientation.z = 0.0;
-    marker.pose.orientation.w = 1.0;
-    marker.scale.x = 1;
-    marker.scale.y = 10;
-    marker.scale.z = 10;
-    marker.color.a = 1.0; 
-    marker.color.r = 1.0;
-    marker.color.g = 1.0;
-    marker.color.b = 1.0;
-    RCLCPP_INFO(this->get_logger(), "Soleil: marker up");
-    marker.frame_locked = true;
-    marker_pub_->publish(marker);
+
 
 
 
@@ -90,7 +66,31 @@ void CelestialBody::update()
         t.transform.rotation.z = 0.0;
         t.transform.rotation.w = 0.0;
         RCLCPP_INFO(this->get_logger(), "Soleil: transfomr up");
-        
+                // Update the marker.
+        visualization_msgs::msg::Marker marker;
+        marker.header.stamp = this->get_clock()->now();
+        marker.header.frame_id = this->name;
+        marker.ns = "";
+        marker.id = this->id;
+        marker.type = visualization_msgs::msg::Marker::SPHERE;
+        marker.action = visualization_msgs::msg::Marker::ADD;
+        marker.pose.position.x = 1;
+        marker.pose.position.y = 1;
+        marker.pose.position.z = 1;
+        marker.pose.orientation.x = 0.0;
+        marker.pose.orientation.y = 0.0;
+        marker.pose.orientation.z = 0.0;
+        marker.pose.orientation.w = 1.0;
+        marker.scale.x = 1;
+        marker.scale.y = 10;
+        marker.scale.z = 10;
+        marker.color.a = 1.0; 
+        marker.color.r = 1.0;
+        marker.color.g = 1.0;
+        marker.color.b = 1.0;
+        RCLCPP_INFO(this->get_logger(), "Soleil: marker up");
+        marker.frame_locked = true;
+        marker_pub_->publish(marker);
     
 
 
