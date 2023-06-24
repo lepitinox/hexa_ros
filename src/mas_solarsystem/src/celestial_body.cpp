@@ -119,8 +119,8 @@ void CelestialBody::update()
     marker.id = id;
     marker.type = visualization_msgs::msg::Marker::SPHERE;
     marker.action = visualization_msgs::msg::Marker::ADD;
-    marker.pose.position.x = x;
-    marker.pose.position.y = y;
+    marker.pose.position.x = 0;
+    marker.pose.position.y = 0;
     marker.pose.position.z = 0.0;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
@@ -134,7 +134,7 @@ void CelestialBody::update()
     marker.color.g = 1.0;
     marker.color.b = 0.0;
     marker.frame_locked = true;
-    
+
     marker_pub_->publish(marker);
     tf_broadcaster_->sendTransform(t);
 
