@@ -15,7 +15,7 @@ public:
 
   void update();
   double calculate_omega(double G, double M, double r);
-
+  rclcpp::TimerBase::SharedPtr timer_;
 private:
 
   std::string name_;
@@ -30,6 +30,7 @@ private:
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
   // adding a publisher marker_pub_
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
+  
 
 
 };

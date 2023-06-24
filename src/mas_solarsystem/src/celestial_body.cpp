@@ -18,8 +18,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
 {
     // log in the console that the node is starting
     RCLCPP_INFO(this->get_logger(), "Starting Celestial Body Node");
-
-    auto update_time = std::chrono::milliseconds(10).count();
+    timer_ = std::chrono::milliseconds(10);
     RCLCPP_INFO(this->get_logger(), "OKLOL 1");
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
     RCLCPP_INFO(this->get_logger(), "OKLOL 2");
