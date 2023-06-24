@@ -27,7 +27,7 @@ private:
   double orbit_radius_;
   std::string name;
   double mass;
-  int orbit_radius;
+  double orbit_radius;
   int id;
   double Rayon;
   double r_scale;

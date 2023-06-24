@@ -28,7 +28,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
 
     this->name = this->get_parameter("name").as_string();
     this->mass = this->get_parameter("Masse").as_double();
-    this->orbit_radius = this->get_parameter("Orbite").as_int();
+    this->orbit_radius = this->get_parameter("Orbite").as_double();
     this->id = this->get_parameter("id").as_int();
     this->Rayon = this->get_parameter("Rayon").as_double();
     this->r_scale = this->get_parameter("r_scale").as_double();
