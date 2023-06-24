@@ -35,7 +35,8 @@ def generate_launch_description():
         if name == "Soleil":
             to_send["r_scale"] = 0.0001
             to_send["d_scale"] = 0.0000001
-
+        time_stamp_scale = 1000.0
+        to_send["time_stamp_scale"] = time_stamp_scale
 
         to_launch.append(Node(
             package='mas_solarsystem',

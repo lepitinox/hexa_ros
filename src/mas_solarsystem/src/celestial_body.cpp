@@ -33,6 +33,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     this->Rayon = this->get_parameter("Rayon").as_double();
     this->r_scale = this->get_parameter("r_scale").as_double();
     this->d_scale = this->get_parameter("d_scale").as_double();
+    this->time_stamp_scale = this->get_parameter("time_stamp_scale").as_double();
 
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
