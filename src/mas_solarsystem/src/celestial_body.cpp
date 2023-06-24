@@ -125,6 +125,4 @@ void CelestialBody::update()
 //    tf_broadcaster_->sendTransform(t);
 //
 //    }
-
-    
-}
+// }
