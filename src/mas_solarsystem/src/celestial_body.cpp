@@ -62,7 +62,8 @@ void CelestialBody::update()
         t.transform.rotation.z = 0.0;
         t.transform.rotation.w = 0.0;
         RCLCPP_INFO(this->get_logger(), "Soleil: transfomr up");
-                // Update the marker.
+
+        // Update the marker.
         visualization_msgs::msg::Marker marker;
         marker.header.stamp = this->get_clock()->now();
         marker.header.frame_id = this->name;
@@ -84,26 +85,21 @@ void CelestialBody::update()
         marker.color.r = 1.0;
         marker.color.g = 1.0;
         marker.color.b = 1.0;
-        RCLCPP_INFO(this->get_logger(), "Soleil: marker up");
         marker.frame_locked = true;
+
         marker_pub_->publish(marker);
-    
-
-
-        RCLCPP_INFO(this->get_logger(), "Soleil: marker_pub_");
         tf_broadcaster_->sendTransform(t);
-        RCLCPP_INFO(this->get_logger(), "Soleil: tf_broadcaster_");
 
     }else{
-    RCLCPP_INFO(this->get_logger(), "In planet");
+
     auto g_constant_ = 6.67430e-11;
     double angular_velocity_ = calculate_omega(g_constant_, mass, orbit_radius);
-    RCLCPP_INFO(this->get_logger(), "In planet: angular done");
+
     double angle = angular_velocity_ * this->get_clock()->now().seconds();
-    RCLCPP_INFO(this->get_logger(), "In planet: angle done");
+
     double x = orbit_radius * cos(angle);
     double y = orbit_radius * sin(angle);
-    RCLCPP_INFO(this->get_logger(), "In planet: sin cos done");
+
     geometry_msgs::msg::TransformStamped t;
     t.header.stamp = this->get_clock()->now();
     t.header.frame_id = "Soleil";
@@ -115,11 +111,7 @@ void CelestialBody::update()
     t.transform.rotation.y = 0.0;
     t.transform.rotation.z = 0.0;
     t.transform.rotation.w = 0.0;
-    RCLCPP_INFO(this->get_logger(), "planet: transform up");
-    // Broadcast the transform.
     
-    
-    // Update the marker.
     visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
     marker.header.frame_id = name;
@@ -141,13 +133,10 @@ void CelestialBody::update()
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
-
-    RCLCPP_INFO(this->get_logger(), "planet: marker up");
     marker.frame_locked = true;
+    
     marker_pub_->publish(marker);
-    RCLCPP_INFO(this->get_logger(), "planet: marker_pub_");
     tf_broadcaster_->sendTransform(t);
-    RCLCPP_INFO(this->get_logger(), "planet:tf_broadcaster_");
 
     }
  }
