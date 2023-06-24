@@ -53,7 +53,6 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 1.0;
-    marker.lifetime = 0.01;
     RCLCPP_INFO(this->get_logger(), "Soleil: marker up");
     marker.frame_locked = true;
     marker_pub_->publish(marker);
@@ -146,7 +145,7 @@ void CelestialBody::update()
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 0.0;
-    marker.lifetime = 0.01;
+
     RCLCPP_INFO(this->get_logger(), "planet: marker up");
     marker.frame_locked = true;
     marker_pub_->publish(marker);
