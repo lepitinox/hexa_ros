@@ -1,5 +1,3 @@
-# example.launch.py
-
 import os
 import json
 
@@ -57,7 +55,7 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='world',
-        arguments=['0', '0', '0', '0', '0', '0', 'world', 'Soleil'],
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'Soleil']
     )
     to_launch.append(world)
     to_launch.append(rviz)
