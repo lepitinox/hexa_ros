@@ -32,8 +32,8 @@ def generate_launch_description():
         to_send = {"name": name}
         to_send.update(dict_planet)
         to_send["id"] = a
-        to_send["r_scale"] = 250000.0
-        to_send["d_scale"] = 0.0001
+        to_send["r_scale"] = 0.001
+        to_send["d_scale"] = 0.00000001
 
 
         to_launch.append(Node(
