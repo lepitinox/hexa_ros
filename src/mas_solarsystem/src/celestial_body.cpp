@@ -46,7 +46,7 @@ void CelestialBody::update()
 
         geometry_msgs::msg::TransformStamped t;
         t.header.stamp = this->get_clock()->now();
-        t.header.frame_id = "map";
+        t.header.frame_id = "world";
         t.child_frame_id = this->name;
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
