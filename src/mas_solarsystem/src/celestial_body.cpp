@@ -28,7 +28,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     RCLCPP_INFO(this->get_logger(), "name ok");
     double mass = this->get_parameter("Masse").as_double();
     RCLCPP_INFO(this->get_logger(), "Masse ok");
-    double orbit_radius = this->get_parameter("Orbite").as_double();
+    int orbit_radius = this->get_parameter("Orbite").as_int();
     RCLCPP_INFO(this->get_logger(), "Orbite ok");
     int id = this->get_parameter("id").as_int();
     RCLCPP_INFO(this->get_logger(), "id ok");
