@@ -50,12 +50,12 @@ void CelestialBody::update()
         tf2::Quaternion q;
         double PeriodeSec = this->Periode * 3600 * 24 
         double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
-        double angle = PeriodeSec * PI / trans_sec;
+        double anglenew = PeriodeSec * M_PI / trans_sec;
         // modulo 2PI
-        auto angle = fmod(angle, 2 * PI);
+        auto ww = fmod(anglenew, 2 * M_PI);
 
         
-        q.setEuler(angle, this->Inclinaison, 0);
+        q.setEuler(ww, this->Inclinaison, 0);
 
         geometry_msgs::msg::TransformStamped t;
         t.header.stamp = this->get_clock()->now();
