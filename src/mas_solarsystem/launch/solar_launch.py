@@ -60,6 +60,6 @@ def generate_launch_description():
    #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'world'],
    # )
 
-    to_launch.append(world)
+   # to_launch.append(world)
     to_launch.append(rviz)
     return LaunchDescription(to_launch)
