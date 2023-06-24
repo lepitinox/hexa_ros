@@ -39,21 +39,12 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 
 void CelestialBody::update()
 {   
-    RCLCPP_INFO(this->get_logger(), "In update");
-    auto name = this->name;
-    auto mass = this->mass;
-    auto orbit_radius = this->orbit_radius;
-    auto id = this->id;
-
-
-    RCLCPP_INFO(this->get_logger(), "name: %s", name.c_str());
-
     if (name == "Soleil"){
 
         geometry_msgs::msg::TransformStamped t;
         t.header.stamp = this->get_clock()->now();
         t.header.frame_id = "world";
-        t.child_frame_id = name;
+        t.child_frame_id = this->name;
         t.transform.translation.x = 0.0;
         t.transform.translation.y = 0.0;
         t.transform.translation.z = 0.0;
@@ -93,7 +84,7 @@ void CelestialBody::update()
     }else{
 
     auto g_constant_ = 6.67430e-11;
-    double angular_velocity_ = calculate_omega(g_constant_, mass, orbit_radius);
+    double angular_velocity_ = calculate_omega(g_constant_, this->mass, this->orbit_radius);
 
     double angle = angular_velocity_ * this->get_clock()->now().seconds();
 
@@ -116,9 +107,9 @@ void CelestialBody::update()
     
     visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
-    marker.header.frame_id = name;
+    marker.header.frame_id = this->name;
     marker.ns = "";
-    marker.id = id;
+    marker.id = this->id;
     marker.type = visualization_msgs::msg::Marker::SPHERE;
     marker.action = visualization_msgs::msg::Marker::ADD;
     marker.pose.position.x = 0;
