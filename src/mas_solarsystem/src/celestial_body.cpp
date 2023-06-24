@@ -19,6 +19,8 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     // log in the console that the node is starting
     RCLCPP_INFO(this->get_logger(), "Starting Celestial Body Node");
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
+    tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+
     RCLCPP_INFO(this->get_logger(), "OKLOL 2");
     timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&CelestialBody::update, this));
     
