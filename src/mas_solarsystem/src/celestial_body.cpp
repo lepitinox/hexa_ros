@@ -88,7 +88,7 @@ void CelestialBody::update()
         marker.color.g = 1.0;
         marker.color.b = 1.0;
         RCLCPP_INFO(this->get_logger(), "Soleil: marker up");
-        marker_.frame_locked = true;
+        marker.frame_locked = true;
         marker_pub_->publish(marker);
         RCLCPP_INFO(this->get_logger(), "Soleil: marker_pub_");
         tf_broadcaster_->sendTransform(t);
@@ -142,7 +142,7 @@ void CelestialBody::update()
     marker.color.g = 1.0;
     marker.color.b = 0.0;
     RCLCPP_INFO(this->get_logger(), "planet: marker up");
-    marker_.frame_locked = true;
+    marker.frame_locked = true;
     marker_pub_->publish(marker);
     RCLCPP_INFO(this->get_logger(), "planet: marker_pub_");
     tf_broadcaster_->sendTransform(t);
