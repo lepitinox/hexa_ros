@@ -31,10 +31,6 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     this->orbit_radius = this->get_parameter("Orbite").as_int();
     this->id = this->get_parameter("id").as_int();
 
-
-
-
-
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
     double omega = std::sqrt(G * M / std::pow(r, 3));
@@ -131,8 +127,8 @@ void CelestialBody::update()
     marker.id = id;
     marker.type = visualization_msgs::msg::Marker::SPHERE;
     marker.action = visualization_msgs::msg::Marker::ADD;
-    marker.pose.position.x = 0.0;
-    marker.pose.position.y = 0.0;
+    marker.pose.position.x = x;
+    marker.pose.position.y = y;
     marker.pose.position.z = 0.0;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
