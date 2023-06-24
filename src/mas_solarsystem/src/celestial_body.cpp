@@ -49,7 +49,7 @@ void CelestialBody::update()
     RCLCPP_INFO(this->get_logger(), "name: %s", name.c_str());
 
     if (name == "Soleil"){
-        RCLCPP_INFO(this->get_logger(), "In Soleil");
+
         geometry_msgs::msg::TransformStamped t;
         t.header.stamp = this->get_clock()->now();
         t.header.frame_id = "world";
@@ -61,7 +61,7 @@ void CelestialBody::update()
         t.transform.rotation.y = 0.0;
         t.transform.rotation.z = 0.0;
         t.transform.rotation.w = 0.0;
-        RCLCPP_INFO(this->get_logger(), "Soleil: transfomr up");
+        tf_broadcaster_->sendTransform(t);
 
         // Update the marker.
         visualization_msgs::msg::Marker marker;
@@ -88,7 +88,7 @@ void CelestialBody::update()
         marker.frame_locked = true;
 
         marker_pub_->publish(marker);
-        tf_broadcaster_->sendTransform(t);
+        
 
     }else{
 
@@ -111,6 +111,8 @@ void CelestialBody::update()
     t.transform.rotation.y = 0.0;
     t.transform.rotation.z = 0.0;
     t.transform.rotation.w = 0.0;
+
+    tf_broadcaster_->sendTransform(t);
     
     visualization_msgs::msg::Marker marker;
     marker.header.stamp = this->get_clock()->now();
@@ -134,9 +136,8 @@ void CelestialBody::update()
     marker.color.g = 1.0;
     marker.color.b = 0.0;
     marker.frame_locked = true;
-
     marker_pub_->publish(marker);
-    tf_broadcaster_->sendTransform(t);
+    
 
     }
  }
