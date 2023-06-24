@@ -33,6 +33,7 @@ private:
   double r_scale;
   double d_scale;
   double time_stamp_scale;
+  double Rotation;
 
   rclcpp::Clock::SharedPtr clock_;
   geometry_msgs::msg::TransformStamped t;

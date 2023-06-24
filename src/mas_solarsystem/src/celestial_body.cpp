@@ -34,6 +34,7 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     this->r_scale = this->get_parameter("r_scale").as_double();
     this->d_scale = this->get_parameter("d_scale").as_double();
     this->time_stamp_scale = this->get_parameter("time_stamp_scale").as_double();
+    this->Rotation = this->get_parameter("Rotation").as_double();
 
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
@@ -44,6 +45,17 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 void CelestialBody::update()
 {   
     if (name == "Soleil"){
+
+        
+        tf2::Quaternion q;
+        double PeriodeSec = this->Periode * 3600 * 24 
+        double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
+        double angle = PeriodeSec * PI / trans_sec;
+        // modulo 2PI
+        auto angle = fmod(angle, 2 * PI);
+
+        
+        q.setEuler(angle, this->Inclinaison, 0);
 
         geometry_msgs::msg::TransformStamped t;
         t.header.stamp = this->get_clock()->now();
@@ -105,7 +117,14 @@ void CelestialBody::update()
     t.transform.translation.y = y * this->d_scale;
     t.transform.translation.z = 0.0;
     tf2::Quaternion q;
-    q.setRPY(0, 0, 5);
+    double PeriodeSec = this->Periode * 3600 * 24 
+    double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
+    double angle = PeriodeSec * PI / trans_sec;
+    // modulo 2PI
+    auto angle = fmod(angle, 2 * PI);
+
+    
+    q.setEuler(angle, this->Inclinaison, 0);
     t.transform.rotation.x = q.x();
     t.transform.rotation.y = q.y();
     t.transform.rotation.z = q.z();
