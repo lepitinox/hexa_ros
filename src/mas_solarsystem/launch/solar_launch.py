@@ -32,6 +32,9 @@ def generate_launch_description():
         to_send["id"] = a
         to_send["r_scale"] = 0.001
         to_send["d_scale"] = 0.0000001
+        if name == "Soleil":
+            to_send["r_scale"] = 0.0001
+            to_send["d_scale"] = 0.0000001
 
 
         to_launch.append(Node(
