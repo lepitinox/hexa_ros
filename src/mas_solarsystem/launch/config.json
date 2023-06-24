@@ -1,13 +1,13 @@
 {"planetes" :{
-    "Soleil" : {"Orbite" : 0, "Rayon" : 695700, "Periode" : 0, "Rotation" : 0, "Inclinaison" : 0, "Masse" : 1989000000000000000000000000000,"body_type":"star"},
-    "Mercure" : {"Orbite" : 57900000, "Rayon" : 2439.7, "Periode" : 88, "Rotation" : 58.6, "Inclinaison" : 0.03, "Masse" : 330110000000000000000000,"body_type":"planet"},
-    "Venus" : {"Orbite" : 108200000, "Rayon" : 6051.8, "Periode" : 225, "Rotation" : 243, "Inclinaison" : 177.36, "Masse" : 4867500000000000000000000,"body_type":"planet"},
-    "Terre" : {"Orbite" : 149600000, "Rayon" : 6371, "Periode" : 365.25, "Rotation" : 24, "Inclinaison" : 23.44, "Masse" : 5972370000000000000000000,"body_type":"planet"},
-    "Mars" : {"Orbite" : 227900000, "Rayon" : 3389.5, "Periode" : 687, "Rotation" : 24.6, "Inclinaison" : 25.19, "Masse" : 641710000000000000000000,"body_type":"planet"},
-    "Jupiter" : {"Orbite" : 778300000, "Rayon" : 69911, "Periode" : 4332.59, "Rotation" : 9.9, "Inclinaison" : 3.13, "Masse" : 1898200000000000000000000000,"body_type":"planet"},
-    "Saturne" : {"Orbite" : 1434000000, "Rayon" : 58232, "Periode" : 10759.22, "Rotation" : 10.7, "Inclinaison" : 26.73, "Masse" : 568340000000000000000000000,"body_type":"planet"},
-    "Uranus" : {"Orbite" : 2871000000, "Rayon" : 25362, "Periode" : 30685.4, "Rotation" : 17.2, "Inclinaison" : 97.77, "Masse" : 86810000000000000000000000,"body_type":"planet"},
-    "Neptune" : {"Orbite" : 4495000000, "Rayon" : 24622, "Periode" : 60189, "Rotation" : 16.1, "Inclinaison" : 28.32, "Masse" : 102410000000000000000000000,"body_type":"planet"}},
+    "Soleil" : {"Orbite" : 0.0, "Rayon" : 695700.0, "Periode" : 0.0, "Rotation" : 0.0, "Inclinaison" : 0.0, "Masse" : 1989000000000000000000000000000.0,"body_type":"star"},
+    "Mercure" : {"Orbite" : 57900000.0, "Rayon" : 2439.7, "Periode" : 88.0, "Rotation" : 58.6, "Inclinaison" : 0.03, "Masse" : 330110000000000000000000.0,"body_type":"planet"},
+    "Venus" : {"Orbite" : 108200000.0, "Rayon" : 6051.8, "Periode" : 225.0, "Rotation" : 243.0, "Inclinaison" : 177.36, "Masse" : 4867500000000000000000000.0,"body_type":"planet"},
+    "Terre" : {"Orbite" : 149600000.0, "Rayon" : 6371, "Periode" : 365.25, "Rotation" : 24.0, "Inclinaison" : 23.44, "Masse" : 5972370000000000000000000.0,"body_type":"planet"},
+    "Mars" : {"Orbite" : 227900000.0, "Rayon" : 3389.5, "Periode" : 687.0, "Rotation" : 24.6, "Inclinaison" : 25.19, "Masse" : 641710000000000000000000.0,"body_type":"planet"},
+    "Jupiter" : {"Orbite" : 778300000.0, "Rayon" : 69911.0, "Periode" : 4332.59, "Rotation" : 9.9, "Inclinaison" : 3.13, "Masse" : 1898200000000000000000000000.0,"body_type":"planet"},
+    "Saturne" : {"Orbite" : 1434000000.0, "Rayon" : 58232.0, "Periode" : 10759.22, "Rotation" : 10.7, "Inclinaison" : 26.73, "Masse" : 568340000000000000000000000.0,"body_type":"planet"},
+    "Uranus" : {"Orbite" : 2871000000.0, "Rayon" : 25362.0, "Periode" : 30685.4, "Rotation" : 17.2, "Inclinaison" : 97.77, "Masse" : 86810000000000000000000000.0,"body_type":"planet"},
+    "Neptune" : {"Orbite" : 4495000000.0, "Rayon" : 24622.0, "Periode" : 60189.0, "Rotation" : 16.1, "Inclinaison" : 28.32, "Masse" : 102410000000000000000000000.0,"body_type":"planet"}},
 
     "params":{
         "G" : 0.0000000000667,
