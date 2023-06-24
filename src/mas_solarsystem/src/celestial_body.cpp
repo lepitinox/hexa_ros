@@ -50,7 +50,7 @@ void CelestialBody::update()
 
         
         tf2::Quaternion q;
-        double PeriodeSec = this->Periode * 3600 * 24 
+        double PeriodeSec = this->Periode * 3600 * 24 ;
         double anglenew =( PeriodeSec * M_PI) / (this->get_clock()->now().seconds() * this->time_stamp_scale);
         auto ww = fmod(anglenew, 2 * M_PI);
         q.setEuler(ww, this->Inclinaison, 0);
@@ -116,7 +116,7 @@ void CelestialBody::update()
     t.transform.translation.z = 0.0;
 
     tf2::Quaternion q;
-    double PeriodeSec = this->Periode * 3600 * 24 
+    double PeriodeSec = this->Periode * 3600 * 24 ;
     double anglenew =( PeriodeSec * M_PI) / (this->get_clock()->now().seconds() * this->time_stamp_scale);
     auto ww = fmod(anglenew, 2 * M_PI);
     q.setEuler(ww, this->Inclinaison, 0);
