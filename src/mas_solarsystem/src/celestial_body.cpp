@@ -35,6 +35,8 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     this->d_scale = this->get_parameter("d_scale").as_double();
     this->time_stamp_scale = this->get_parameter("time_stamp_scale").as_double();
     this->Rotation = this->get_parameter("Rotation").as_double();
+    this->Inclinaison = this->get_parameter("Inclinaison").as_double();
+    this->Periode = this->get_parameter("Periode").as_double();
 
 }
 double CelestialBody::calculate_omega(double G, double M, double r) {
@@ -50,7 +52,7 @@ void CelestialBody::update()
         tf2::Quaternion q;
         double PeriodeSec = this->Periode * 3600 * 24 
         double trans_sec = this->get_clock()->now().seconds() * this->time_stamp_scale;
-        double anglenew = PeriodeSec * M_PI / trans_sec;
+        double anglenew = PeriodeSec * M_PI / PeriodeSec;
         // modulo 2PI
         auto ww = fmod(anglenew, 2 * M_PI);
 
