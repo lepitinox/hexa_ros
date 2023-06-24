@@ -90,6 +90,8 @@ void CelestialBody::update()
     double angular_velocity_ = calculate_omega(g_constant_, this->mass, this->orbit_radius);
 
     double angle = angular_velocity_ * this->get_clock()->now().seconds();
+    // log in the console the current angle
+    RCLCPP_INFO(this->get_logger(), "Angle: %f", angle);
 
     double x = orbit_radius * cos(angle);
     double y = orbit_radius * sin(angle);
