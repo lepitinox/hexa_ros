@@ -24,10 +24,10 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
     
     //auto timer_ = create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
 
-    std::string name = this->get_parameter("name").as_string();
-    double mass = this->get_parameter("Masse").as_double();
-    int orbit_radius = this->get_parameter("Orbite").as_int();
-    int id = this->get_parameter("id").as_int();
+    this->name = this->get_parameter("name").as_string();
+    this->mass = this->get_parameter("Masse").as_double();
+    this->orbit_radius = this->get_parameter("Orbite").as_int();
+    this->id = this->get_parameter("id").as_int();
 
 
 }
@@ -39,6 +39,11 @@ double CelestialBody::calculate_omega(double G, double M, double r) {
 void CelestialBody::update()
 {   
     RCLCPP_INFO(this->get_logger(), "In update");
+    auto name = this->name;
+    auto mass = this->mass;
+    auto orbit_radius = this->orbit_radius;
+    auto id = this->id;
+
 
     RCLCPP_INFO(this->get_logger(), "name: %s", name.c_str());
 
