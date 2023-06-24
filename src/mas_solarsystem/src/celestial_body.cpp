@@ -112,8 +112,8 @@ void CelestialBody::update()
     t.header.stamp = this->get_clock()->now();
     t.header.frame_id = "Soleil";
     t.child_frame_id = name;
-    t.transform.translation.x = x;
-    t.transform.translation.y = y;
+    t.transform.translation.x = 0.0;
+    t.transform.translation.y = 0.0;
     t.transform.translation.z = 0.0;
     t.transform.rotation.x = 0.0;
     t.transform.rotation.y = 0.0;
