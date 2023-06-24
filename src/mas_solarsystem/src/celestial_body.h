@@ -29,11 +29,12 @@ private:
   double mass;
   int orbit_radius;
   int id;
+  double Rayon;
+  double r_scale;
 
   rclcpp::Clock::SharedPtr clock_;
   geometry_msgs::msg::TransformStamped t;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-  // adding a publisher marker_pub_
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_pub_;
   
 
