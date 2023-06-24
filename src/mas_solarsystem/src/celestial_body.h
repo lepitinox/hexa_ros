@@ -24,7 +24,11 @@ private:
   std::vector<double> velocity_;
   double g_constant_;
   int marker_id_;
-  double orbit_radius_;   
+  double orbit_radius_;
+  std::string name;
+  double mass;
+  double orbit_radius;
+  int id;
 
   rclcpp::Clock::SharedPtr clock_;
   std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
