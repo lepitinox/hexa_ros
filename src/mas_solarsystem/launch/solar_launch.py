@@ -53,12 +53,12 @@ def generate_launch_description():
         arguments=['-d', os.path.join(get_package_share_directory('mas_solarsystem'), 'launch', 'config.rviz')],
     )
 
-    world = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='world',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'world'],
-    )
+   # world = Node(
+   #     package='tf2_ros',
+   #     executable='static_transform_publisher',
+   #     name='world',
+   #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'world'],
+   # )
 
     to_launch.append(world)
     to_launch.append(rviz)
