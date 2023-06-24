@@ -18,11 +18,9 @@ CelestialBody::CelestialBody() : Node("celestial_body_node",
 {
     // log in the console that the node is starting
     RCLCPP_INFO(this->get_logger(), "Starting Celestial Body Node");
-    timer_ = std::chrono::milliseconds(10);
-    RCLCPP_INFO(this->get_logger(), "OKLOL 1");
     marker_pub_ = this->create_publisher<visualization_msgs::msg::Marker>( "/marker", 10 );
     RCLCPP_INFO(this->get_logger(), "OKLOL 2");
-    auto timer_ = this->create_wall_timer(timer_, std::bind(&CelestialBody::update, this));
+    timer_ = this->create_wall_timer(std::chrono::milliseconds(10), std::bind(&CelestialBody::update, this));
     RCLCPP_INFO(this->get_logger(), "OKLOL 3");
     //auto timer_ = create_wall_timer(std::chrono::milliseconds(100), [this]() { update(); });
 
