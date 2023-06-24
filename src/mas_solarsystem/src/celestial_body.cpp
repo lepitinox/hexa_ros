@@ -40,6 +40,7 @@ void CelestialBody::update()
 {   
     RCLCPP_INFO(this->get_logger(), "In update");
 
+    RCLCPP_INFO(this->get_logger(), "name: %s", name.c_str());
 
     if (name == "Soleil"){
         RCLCPP_INFO(this->get_logger(), "In Soleil");
